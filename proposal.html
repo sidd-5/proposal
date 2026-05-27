@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations Leadership Proposal — Santiago Ventures</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0f0e0c;
+  --paper:#f5f2ec;
+  --surface:#edeae2;
+  --accent:#c8402a;
+  --muted:#7a7570;
+  --border:#d4cfc5;
+  --border-dark:#0f0e0c;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);font-size:14px;line-height:1.6}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--paper);
+  border-bottom:1.5px solid var(--border-dark);
+  padding:0 48px;height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:'Playfair Display',serif;font-size:15px;font-weight:700}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:0.04em;transition:color 0.15s}
+.nav-links a:hover{color:var(--ink)}
+@media(max-width:600px){.nav-links{display:none}nav{padding:0 24px}}
+
+/* PAGE */
+.page{max-width:860px;margin:0 auto;padding:0 48px}
+@media(max-width:600px){.page{padding:0 24px}}
+
+/* HERO */
+.hero{
+  padding:108px 48px 72px;
+  max-width:860px;margin:0 auto;
+  border-bottom:1.5px solid var(--border-dark);
+}
+@media(max-width:600px){.hero{padding:96px 24px 56px}}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,68px);font-weight:900;line-height:1;letter-spacing:-1px;margin-bottom:20px}
+.hero-sub{font-size:15px;color:var(--muted);max-width:480px;line-height:1.7;margin-bottom:40px;font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1.5px solid var(--border-dark)}
+@media(max-width:600px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+.hero-stat{padding:20px 20px 16px;border-right:1px solid var(--border)}
+.hero-stat:last-child{border-right:none}
+.hero-stat-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;line-height:1;margin-bottom:6px}
+.hero-stat-val.r{color:var(--accent)}
+.hero-stat-label{font-size:11px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
+
+/* SECTION */
+.section{padding:56px 0;border-bottom:1.5px solid var(--border-dark)}
+.section:last-child{border-bottom:none}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:28px}
+.sec-n{font-family:'Playfair Display',serif;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:0.08em}
+.sec-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700}
+.sec-rule{flex:1;height:1px;background:var(--border)}
+
+/* ACCOUNTABILITY BOX */
+.acct-box{background:var(--ink);color:var(--paper);padding:24px 28px;margin-bottom:20px;display:flex;gap:16px;align-items:flex-start}
+.acct-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#a09a92;margin-bottom:6px}
+.acct-text{font-size:13px;color:rgba(245,242,236,0.75);line-height:1.65}
+.acct-tag{background:var(--accent);color:#fff;font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;white-space:nowrap;margin-top:2px;flex-shrink:0}
+
+/* WORK GRID */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border)}
+@media(max-width:600px){.work-grid{grid-template-columns:1fr}}
+.work-card{background:var(--paper);padding:20px 22px}
+.wc-title{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.wc-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.wc-list li{font-size:13px;color:#3a3734;display:flex;gap:10px;line-height:1.5}
+.wc-list li::before{content:'—';color:var(--border);flex-shrink:0}
+
+/* SALARY */
+.salary-grid{display:grid;grid-template-columns:200px 1fr;gap:2px;background:var(--border)}
+@media(max-width:600px){.salary-grid{grid-template-columns:1fr}}
+.sal-big{background:var(--ink);padding:28px 24px}
+.sal-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#a09a92;margin-bottom:8px}
+.sal-val{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:var(--paper);line-height:1;margin-bottom:4px}
+.sal-period{font-size:11px;color:#6a6460}
+.sal-reasons{background:var(--paper);padding:0}
+.reason{display:flex;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border)}
+.reason:last-child{border-bottom:none}
+.reason-n{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--accent);flex-shrink:0;width:20px}
+.reason-title{font-size:13px;font-weight:600;margin-bottom:2px}
+.reason-body{font-size:12px;color:var(--muted);line-height:1.55}
+
+/* VISION */
+.vision-list{border:1.5px solid var(--border-dark)}
+.vision-row{display:grid;grid-template-columns:28px auto 1fr auto;gap:16px;align-items:baseline;padding:14px 18px;border-bottom:1px solid var(--border)}
+.vision-row:last-child{border-bottom:none}
+.vr-n{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--accent)}
+.vr-title{font-size:13px;font-weight:600;color:var(--ink)}
+.vr-desc{font-size:12px;color:var(--muted);line-height:1.55}
+.vr-badge{font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border:1px solid var(--border);color:var(--muted);white-space:nowrap}
+.vr-badge.now{border-color:var(--accent);color:var(--accent)}
+
+/* TERMS */
+.terms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);margin-bottom:2px}
+@media(max-width:600px){.terms-grid{grid-template-columns:1fr}}
+.term{background:var(--paper);padding:18px 20px;border-top:3px solid var(--ink)}
+.term-title{font-size:13px;font-weight:600;margin-bottom:6px}
+.term-body{font-size:12px;color:var(--muted);line-height:1.6}
+.asks-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+@media(max-width:600px){.asks-row{grid-template-columns:repeat(2,1fr)}}
+.ask{background:var(--paper);padding:16px 18px;display:flex;gap:12px;align-items:flex-start}
+.ask-ico{font-size:16px;flex-shrink:0}
+.ask-title{font-size:12px;font-weight:600;margin-bottom:2px}
+.ask-body{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* COMPENSATION SUMMARY */
+.comp-summary{border:1.5px solid var(--border-dark);overflow:hidden}
+.comp-row{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)}
+.comp-row:last-child{border-bottom:none;background:var(--ink)}
+.comp-row.total .comp-label{color:var(--paper);font-weight:500;font-size:14px}
+.comp-row.total .comp-right{color:var(--accent)}
+.comp-label{font-size:13px;color:var(--muted)}
+.comp-right{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink)}
+.comp-sub{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;text-align:right}
+.comp-note{font-size:11px;color:var(--muted);margin-top:10px;text-align:center;letter-spacing:0.04em}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease}
+.fade.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Tanvi Vanne</div>
+  <ul class="nav-links">
+    <li><a href="#built">Work Done</a></li>
+    <li><a href="#salary">Salary</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#terms">Commitment</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Operations Leadership Proposal — 2025</div>
+  <h1 class="hero-title">Built from zero.<br>Ready to own everything.</h1>
+  <p class="hero-sub">What I've delivered, what I'm ready to take on, and what fair compensation looks like for this scope of work.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-val">100%</div>
+      <div class="hero-stat-label">Backend Ops Owned</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">7.2×</div>
+      <div class="hero-stat-label">ROAS on ₹45K Spend</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val r">₹3.25L</div>
+      <div class="hero-stat-label">Amazon Gross Sales</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val r">5+</div>
+      <div class="hero-stat-label">Domains Managed</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- WORK DONE -->
+<div class="section" id="built">
+  <div class="sec-head fade">
+    <span class="sec-n">01</span>
+    <span class="sec-title">Work Delivered</span>
+    <span class="sec-rule"></span>
+  </div>
+
+  <div class="acct-box fade">
+    <div style="flex:1">
+      <div class="acct-label">Accountability Statement</div>
+      <div class="acct-text">I am solely responsible for the entire backend operations of the company — team, SOPs, NDR, shipments, data, and customer care. If ops runs well, that's on me. If something breaks, I fix it.</div>
+    </div>
+    <div class="acct-tag">Sole Owner</div>
+  </div>
+
+  <div class="work-grid fade">
+    <div class="work-card">
+      <div class="wc-title">Operations</div>
+      <ul class="wc-list">
+        <li>Built entire ops team from scratch</li>
+        <li>Created all SOPs end-to-end</li>
+        <li>Inventory management and reporting</li>
+        <li>Caller team — hiring, process, management</li>
+        <li>Executive performance dashboards</li>
+      </ul>
+    </div>
+    <div class="work-card">
+      <div class="wc-title">NDR & Shipments</div>
+      <ul class="wc-list">
+        <li>Built and runs the full NDR team</li>
+        <li>All NDR processes and SOPs</li>
+        <li>Handles all iThink escalations</li>
+        <li>Daily shipment tracking across brands</li>
+        <li>Reducing failed deliveries before they turn into returns</li>
+      </ul>
+    </div>
+    <div class="work-card">
+      <div class="wc-title">Amazon</div>
+      <ul class="wc-list">
+        <li>Listing, optimisation, ads, shipping, reviews</li>
+        <li>₹3.25L gross at ₹45K spend — 7.2× ROAS</li>
+        <li>₹57K net credited to account</li>
+        <li>Multiple brand listings managed</li>
+      </ul>
+    </div>
+    <div class="work-card">
+      <div class="wc-title">Data & Customer Care</div>
+      <ul class="wc-list">
+        <li>RTO analysis and root cause analysis</li>
+        <li>Day-to-day and quarterly ops data management</li>
+        <li>All customer queries, refunds, escalations</li>
+        <li>Meta ads — domestic and international</li>
+        <li>Google — ready to launch</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SALARY -->
+<div class="section" id="salary">
+  <div class="sec-head fade">
+    <span class="sec-n">02</span>
+    <span class="sec-title">Why ₹65,000 Base is Justified</span>
+    <span class="sec-rule"></span>
+  </div>
+  <div class="salary-grid fade">
+    <div class="sal-big">
+      <div class="sal-label">Base Salary</div>
+      <div class="sal-val">₹65K</div>
+      <div class="sal-period">per month</div>
+    </div>
+    <div class="sal-reasons">
+      <div class="reason">
+        <div class="reason-n">01</div>
+        <div><div class="reason-title">Five roles in one</div><div class="reason-body">Ops Manager + NDR Lead + Amazon AM + Data Analyst + Team Lead. Each alone is ₹30–50K in the market.</div></div>
+      </div>
+      <div class="reason">
+        <div class="reason-n">02</div>
+        <div><div class="reason-title">Revenue already generated</div><div class="reason-body">Amazon alone delivered 7.2× ROAS. Annual salary is ₹7.8L. Value delivered exceeds that.</div></div>
+      </div>
+      <div class="reason">
+        <div class="reason-n">03</div>
+        <div><div class="reason-title">Everything built from zero</div><div class="reason-body">Team, SOPs, dashboards, data systems — all created from scratch. This is infrastructure, not maintenance.</div></div>
+      </div>
+      <div class="reason">
+        <div class="reason-n">04</div>
+        <div><div class="reason-title">Full accountability</div><div class="reason-body">Every operational outcome runs through me. That level of ownership commands a senior-level base.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISION -->
+<div class="section" id="vision">
+  <div class="sec-head fade">
+    <span class="sec-n">03</span>
+    <span class="sec-title">Future Plans</span>
+    <span class="sec-rule"></span>
+  </div>
+  <div class="vision-list fade">
+    <div class="vision-row">
+      <span class="vr-n">01</span>
+      <span class="vr-title">Full Backend Ops Ownership</span>
+      <span class="vr-desc">Single point of accountability for NDR, shipments, team, escalations, and all daily operations across every brand.</span>
+      <span class="vr-badge now">Ready now</span>
+    </div>
+    <div class="vision-row">
+      <span class="vr-n">02</span>
+      <span class="vr-title">Complete Team Management</span>
+      <span class="vr-desc">Own hiring, onboarding, performance reviews, and building a team that runs without constant supervision.</span>
+      <span class="vr-badge now">Ready now</span>
+    </div>
+    <div class="vision-row">
+      <span class="vr-n">03</span>
+      <span class="vr-title">Real-Time Executive Dashboard</span>
+      <span class="vr-desc">One live dashboard for leadership — calling data, NDR, RTO, shipments, revenue. No need to ask anyone for a number.</span>
+      <span class="vr-badge now">In making</span>
+    </div>
+    <div class="vision-row">
+      <span class="vr-n">04</span>
+      <span class="vr-title">Centralised Operations System</span>
+      <span class="vr-desc">Single source of truth across ops, customer care, and data. Standardised SOPs, clear escalation tiers, faster decisions.</span>
+      <span class="vr-badge">90 days</span>
+    </div>
+    <div class="vision-row">
+      <span class="vr-n">05</span>
+      <span class="vr-title">Brand P&L Ownership</span>
+      <span class="vr-desc">Hand me one brand. I run it end-to-end — finance, ops, marketing, customer care. Give me 6 months and a profitability target.</span>
+      <span class="vr-badge now">Proposing now</span>
+    </div>
+  </div>
+</div>
+
+<!-- TERMS -->
+<div class="section" id="terms">
+  <div class="sec-head fade">
+    <span class="sec-n">04</span>
+    <span class="sec-title">Commitment & Terms</span>
+    <span class="sec-rule"></span>
+  </div>
+
+  <div class="acct-box fade" style="margin-bottom:20px">
+    <div style="flex:1">
+      <div class="acct-label">What I've Already Given</div>
+      <div class="acct-text">I have worked every single day — 30 days a month, no exceptions. During crisis seasons — high-volume periods, escalations, launch weeks — I have consistently put in 14 to 15 hours a day to keep operations running. This is not something I'm promising to do. This is something I have already done. The ask for ₹65K is not just about the scope of work. It's about recognising the time, the intensity, and the personal investment that has already gone in.</div>
+    </div>
+    <div class="acct-tag">Proven</div>
+  </div>
+
+  <div class="terms-grid fade" style="grid-template-columns:1fr;margin-bottom:2px">
+    <div class="term">
+      <div class="term-title">Written role scope</div>
+      <div class="term-body">Responsibilities and work division defined in writing. Protects both sides, removes ambiguity, and ensures the right work goes to the right person.</div>
+    </div>
+  </div>
+  <div class="asks-row fade">
+    <div class="ask"><span class="ask-ico">✈️</span><div><div class="ask-title">Travel allowance</div><div class="ask-body">Actuals against bills</div></div></div>
+    <div class="ask"><span class="ask-ico">🤝</span><div><div class="ask-title">Employee benefits</div><div class="ask-body">To be discussed</div></div></div>
+    <div class="ask"><span class="ask-ico">🌱</span><div><div class="ask-title">Respectful work environment</div><div class="ask-body">Free, open, and growth-oriented</div></div></div>
+    <div class="ask"><span class="ask-ico">📋</span><div><div class="ask-title">Proper role bifurcation</div><div class="ask-body">Clear work division, defined in writing</div></div></div>
+  </div>
+</div>
+
+<!-- COMPENSATION SUMMARY -->
+<div class="section" id="compensation">
+  <div class="sec-head fade">
+    <span class="sec-n">05</span>
+    <span class="sec-title">Compensation Summary</span>
+    <span class="sec-rule"></span>
+  </div>
+  <div class="comp-summary fade">
+    <div class="comp-row">
+      <div class="comp-label">Base salary</div>
+      <div>
+        <div class="comp-right">₹65,000 / month</div>
+        <div class="comp-sub">₹7.8L / year</div>
+      </div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label">Travel allowance</div>
+      <div>
+        <div class="comp-right" style="font-size:15px;">Actuals against bills</div>
+        <div class="comp-sub">As incurred</div>
+      </div>
+    </div>
+    <div class="comp-row">
+      <div class="comp-label">Performance incentives</div>
+      <div>
+        <div class="comp-right" style="font-size:15px;">To be discussed</div>
+        <div class="comp-sub">Mutually agreed KPIs</div>
+      </div>
+    </div>
+    <div class="comp-row total">
+      <div class="comp-label">What the company gets in return</div>
+      <div>
+        <div class="comp-right" style="font-size:16px;">5 roles · 1 person · Full ownership</div>
+        <div class="comp-sub" style="color:#a09a92;">Ops + NDR + Amazon + Data + Team Lead</div>
+      </div>
+    </div>
+  </div>
+  <p class="comp-note">Replacing these functions separately would cost ₹2–2.5L/month minimum. This is a value hire.</p>
+</div>
+
+</div><!-- /page -->
+
+<!-- CLOSING -->
+<div class="closing" style="border-top:1.5px solid var(--border-dark);padding:72px 48px;text-align:center">
+  <div style="font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,38px);font-weight:900;line-height:1.2;margin-bottom:16px;letter-spacing:-0.5px">All I'm asking for is a <span style="color:var(--accent)">playground.</span></div>
+  <p style="font-size:14px;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.75;font-weight:300">Give me the space to explore my full potential, own what I build, and grow alongside the business. I'm not here to clock in and out — I'm here to create something that matters, with the people I work with.</p>
+</div>
+
+<footer style="border-top:1.5px solid var(--border-dark);padding:16px 48px;display:flex;justify-content:space-between;align-items:center">
+  <span style="font-size:11px;color:var(--muted);letter-spacing:0.06em">Tanvi Vanne — 2025</span>
+  <span style="font-size:11px;color:var(--muted);letter-spacing:0.06em">Operations Leadership Proposal</span>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)} });
+}, {threshold:0.08});
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
